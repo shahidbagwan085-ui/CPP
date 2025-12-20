@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double P = 6000;
+    double A = 1000; //Annual ,Salvage value ,Interest
+    double S = 2000; 
+    double i = 0.12; 
+    double EAW;
+
+    for (int n = 1; n <= 20; n++) {
+        double AP = (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);
+        double AF = i / (pow(1 + i, n) - 1);
+
+        EAW = A - P * AP + S * AF;
+
+        if (EAW >= 0) {
+            cout << "Minimum life of machine = " << n << " years";
+            break;
+        }
+    }
+    return 0;
+}
+
+
